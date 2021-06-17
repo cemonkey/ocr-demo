@@ -53,3 +53,17 @@ To see the names of the S3 bucket and DynamoDB table created after deployment, y
 aws cloudformation describe-stacks \
     --stack-name aws_sam_ocr --query 'Stacks[].Outputs'
 ```
+
+Initial SAM files generated using the following
+```
+sam init --location gh:aws-samples/cookiecutter-aws-sam-s3-rekognition-dynamodb-python
+```
+
+Pipeline generated using the following
+
+```
+mkdir -p pipeline
+cd pipeline
+sam init --location gh:aws-samples/cookiecutter-aws-sam-pipeline
+mv buildspec.yaml ..
+```
