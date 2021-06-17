@@ -178,7 +178,7 @@ Resources:
                         StackName: aws-sam-ocr-pipeline-Beta
                         ChangeSetName: aws-sam-ocr-pipeline-ChangeSet-Beta
                         ParameterOverrides:
-                          MicronautEnvironment: 'dev'
+                          MicronautEnvironment: '{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}'
                       OutputArtifacts:
                         - Name: aws-sam-ocr-pipelineBetaChangeSet
                       RunOrder: 2
