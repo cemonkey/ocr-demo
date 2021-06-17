@@ -22,7 +22,7 @@ Resources:
         Variables:
           TABLE_NAME:
             Ref: ResultsTable
-          FOO: '{{resolve:secretsmanager:!Ref RuntimeProfile:SecretString:foo}}'
+          FOO: '{{resolve:secretsmanager:beta/aws-sam-ocr:SecretString:foo}}'
       Policies:
         - Version: '2012-10-17'
           Statement:
