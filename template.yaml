@@ -4,8 +4,8 @@ Transform: 'AWS::Serverless-2016-10-31'
 Description: SAM app that uses Rekognition APIs to detect text in S3 Objects and stores labels in DynamoDB.
 
 Parameters:
-  RuntimeProfile:
-    Description: 'Runtime Profile'
+  Environment:
+    Description: 'Environment'
     Type: String
 
 Resources:
@@ -22,7 +22,11 @@ Resources:
         Variables:
           TABLE_NAME:
             Ref: ResultsTable
-          FOO: '{{resolve:secretsmanager:beta/aws-sam-ocr:SecretString:foo}}'
+          MICRONAUT_ENVIRONMENTS:
+            Ref: Environment
+          LOCATION_METRICS_API_KEY: !Sub
+            - '{{resolve:secretsmanager:${EnvironmentName}/location-metrics-scraper:SecretString:foo}}'
+            - { EnvironmentName: !Ref Environment }
       Policies:
         - Version: '2012-10-17'
           Statement:

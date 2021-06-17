@@ -161,7 +161,7 @@ Resources:
                         ChangeSetName: aws-sam-ocr-pipeline-ChangeSet-Beta
                         TemplatePath: BuildArtifactAsZip::packaged.yaml
                         Capabilities: CAPABILITY_IAM
-                        ParameterOverrides: '{"RuntimeProfile": "dev"}'
+                        ParameterOverrides: '{"Environment": "dev"}'
                       InputArtifacts:
                         - Name: BuildArtifactAsZip
                       RunOrder: 1
