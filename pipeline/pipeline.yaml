@@ -161,8 +161,7 @@ Resources:
                         ChangeSetName: aws-sam-ocr-pipeline-ChangeSet-Beta
                         TemplatePath: BuildArtifactAsZip::packaged.yaml
                         Capabilities: CAPABILITY_IAM
-                        ParameterOverrides:
-                          MicronautEnvironment: '{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}'
+                        ParameterOverrides: '{"MicronautEnvironment": "{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}"}'
                       InputArtifacts:
                         - Name: BuildArtifactAsZip
                       RunOrder: 1
@@ -177,8 +176,7 @@ Resources:
                         RoleArn: !GetAtt CloudFormationExecutionRole.Arn
                         StackName: aws-sam-ocr-pipeline-Beta
                         ChangeSetName: aws-sam-ocr-pipeline-ChangeSet-Beta
-                        ParameterOverrides:
-                          MicronautEnvironment: '{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}'
+                        ParameterOverrides: '{"MicronautEnvironment": "{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}'
                       OutputArtifacts:
                         - Name: aws-sam-ocr-pipelineBetaChangeSet
                       RunOrder: 2
