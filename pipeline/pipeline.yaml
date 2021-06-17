@@ -162,7 +162,7 @@ Resources:
                         TemplatePath: BuildArtifactAsZip::packaged.yaml
                         Capabilities: CAPABILITY_IAM
                         ParameterOverrides:
-                          MicronautEnvironment: 'dev'
+                          MicronautEnvironment: '{{resolve:secretsmanager:ocr-demo-beta:SecretString:foo}}'
                       InputArtifacts:
                         - Name: BuildArtifactAsZip
                       RunOrder: 1
