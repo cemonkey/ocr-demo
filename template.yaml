@@ -3,6 +3,12 @@ Transform: 'AWS::Serverless-2016-10-31'
 
 Description: SAM app that uses Rekognition APIs to detect text in S3 Objects and stores labels in DynamoDB.
 
+Parameters:
+  MicronautEnvironment:
+    Description: 'Micronaut environment'
+    Type: String
+    Default: 'local'
+
 Resources:
   DetectTextInImage:
     Type: 'AWS::Serverless::Function'
@@ -17,6 +23,8 @@ Resources:
         Variables:
           TABLE_NAME:
             Ref: ResultsTable
+          MICRONAUT_ENVIRONMENTS:
+            Ref: MicronautEnvironment
       Policies:
         - Version: '2012-10-17'
           Statement:
