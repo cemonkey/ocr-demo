@@ -25,7 +25,7 @@ Resources:
           MICRONAUT_ENVIRONMENTS:
             Ref: Environment
           LOCATION_METRICS_API_KEY: !Sub
-            - '{{resolve:secretsmanager:${EnvironmentName}/location-metrics-scraper:SecretString:foo}}'
+            - '{{resolve:secretsmanager:${EnvironmentName}/aws-ocr-demo:SecretString:foo}}'
             - { EnvironmentName: !Ref Environment }
       Policies:
         - Version: '2012-10-17'

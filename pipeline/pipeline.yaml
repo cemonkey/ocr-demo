@@ -176,7 +176,7 @@ Resources:
                         RoleArn: !GetAtt CloudFormationExecutionRole.Arn
                         StackName: aws-sam-ocr-pipeline-Beta
                         ChangeSetName: aws-sam-ocr-pipeline-ChangeSet-Beta
-                        ParameterOverrides: '{"RuntimeProfile": "dev"}'
+                        ParameterOverrides: '{"Environment": "dev"}'
                       OutputArtifacts:
                         - Name: aws-sam-ocr-pipelineBetaChangeSet
                       RunOrder: 2
